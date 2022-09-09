@@ -10,19 +10,6 @@ export const run = async () => {
     console.log("Node 18 or higher is required to run Amane.");
     return true;
   }
-
-  if (ownerList) {
-    const ownerListArray : Array<String> = ownerList.split(",");
-    for (const owner of ownerListArray) {
-      if (isNaN(filterInt(owner))) {
-        console.log("Owner ID is not a number.");
-        return true;
-      }
-    }
-  } else {
-    console.log("Owner ID is not set.");
-    return true;
-  }
 };
 
 function filterInt(value) {
