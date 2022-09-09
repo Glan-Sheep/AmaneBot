@@ -1,10 +1,10 @@
-import { Client, Collection, Intents } from "discord.js";
+import { BaseApplicationCommandData, Client, Collection, Intents } from "discord.js";
 import { AmaneError, SlashCommand } from "../lib";
 import Parser from "./Parser";
+import MongoDB from "../database/MongoDB";
 import path from "path";
 import chalk from "chalk";
 import glob from "glob";
-import mongoose from "mongoose";
 
 import "./Console.js";
 
@@ -24,8 +24,8 @@ class Amane extends Client {
 
   databaseCache: any;
 
-  mongoose: {
-    init: void
+  mongoDB: {
+    init: Function
   };
 
   usersID: any;
@@ -57,7 +57,7 @@ class Amane extends Client {
     this.databaseCache.guilds = new Collection();
     this.databaseCache.members = new Collection();
 
-    this.mongoose = require("../database/mongoose");
+    this.mongoDB = new MongoDB();
 
     console.log(chalk.bold.bgRed("CLIENT [INITIALISED]"));
 
@@ -122,20 +122,7 @@ class Amane extends Client {
 
   //ログイン
   async Amanelogin() {
-    let mongo_options = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    };
-    mongoose.connect(MONGODB_URI)
-      .then((res) => {
-        console.log(chalk.bold.bgGreen("[MONGODB] LOGIN_SUCCESSFULLY"));
-      })
-      .catch((err) => {
-        console.log(chalk.bgRed(`[MONGODB] LOGIN_FAILED`));
-        console.log(err);
-      });
+    this.mongoDB.init()
     try {
       await super.login(TOKEN);
     } catch (e) {
