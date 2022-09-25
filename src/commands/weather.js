@@ -39,15 +39,19 @@ class Weather extends SlashCommand {
       const wea_ApiURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum&timezone=Asia%2FTokyo`;
       const wea_res = await axios.get(wea_ApiURL);
       console.log(wea_res.data);
-      let description = "";
+
+      const embeds = new MessageEmbed()
 
       for (let i = 0; i < wea_res.data.daily.time.length; i++) {
-        description += `[${wea_res.data.daily.time[i]}] min:${wea_res.data.daily.temperature_2m_min[i]} max:${wea_res.data.daily.temperature_2m_max[i]}` + "\n";
+        embeds.addFields({ name: `[${wea_res.data.daily.time[i]}]`,
+        value:`最低気温：${wea_res.data.daily.temperature_2m_min[i]}℃
+        最高気温：${wea_res.data.daily.temperature_2m_max[i]}℃
+        降水量：${wea_res.data.daily.precipitation_sum[i]}mm`
+        , inline: true });
       }
-      const embeds = new MessageEmbed()
+      embeds
         .setColor("#0099ff")
-        .setTitle(`天気`)
-        .setDescription(description);
+        .setTitle(`${place_res.data.results[0].name} weather`)
       super.respond(embeds);
     }
   }
