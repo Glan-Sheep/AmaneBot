@@ -46,19 +46,6 @@ class Sudden_death extends SlashCommand {
       });
       return Math.ceil(len);
     }
-    super.respond({
-      data: {
-        type: 4,
-        data: {
-          embeds: [
-            {
-              title: "突然の死を生成したよ！",
-              description: result
-            }
-          ]
-        }
-      }
-    });
     const embeds = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle("突然の死を生成したよ！")
