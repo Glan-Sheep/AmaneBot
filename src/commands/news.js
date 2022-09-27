@@ -20,7 +20,7 @@ class News extends SlashCommand {
     let description = "";
     const embeds = new MessageEmbed()
     for(let i = 0; i < resdata.length; i++) {
-      description += `${resdata[i].title}[...](${resdata[i].link})\n`;
+      description += `${resdata[i].title}[🔗](${resdata[i].link})\n`;
     }
     embeds
       .setColor("#0099ff")
