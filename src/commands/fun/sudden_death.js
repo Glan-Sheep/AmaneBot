@@ -1,4 +1,4 @@
-const { SlashCommand } = require("../lib"),
+const { SlashCommand } = require("../../lib"),
   axios = require("axios"),
   split = require("graphemesplit"),
   { MessageEmbed } = require("discord.js");
