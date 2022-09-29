@@ -7,9 +7,7 @@ class Meigen extends SlashCommand {
   constructor(client) {
     super(client, {
       name: "meigen",
-      description: "ランダムで名言を表示します。",
-      options: [
-      ]
+      description: "ランダムで名言を表示します。"
     });
   }
 
