@@ -1,4 +1,4 @@
-import internal from "stream";
+/*import internal from "stream";
 
 require("dotenv").config();
 
@@ -18,4 +18,4 @@ function filterInt(value) {
   } else {
     return NaN
   }
-};
+};*/

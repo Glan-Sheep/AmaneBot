@@ -1,10 +1,7 @@
-import Amane from "./structures/_Amane.js";
+import Amane from "./structures/_Amane.ts";
+//import checkCoinfig from "./scripts/check-config.ts"
 
-(async () => {
-  const checkConfig = await require('./scripts/check-config').run();
 
-  if (!checkConfig) {
-    const client = new Amane();
-    client.init();
-  }
-})();
+//const checkConfig = await require('./scripts/check-config').run();
+
+const client = new Amane();
