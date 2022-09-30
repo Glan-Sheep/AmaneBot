@@ -1,7 +1,13 @@
+import check from "./scripts/check-config.ts";
 import Amane from "./structures/_Amane.ts";
-//import checkCoinfig from "./scripts/check-config.ts"
 
+(async () => {
+  const checkConfig: boolean = await check();
 
-//const checkConfig = await require('./scripts/check-config').run();
-
-const client = new Amane();
+  if (checkConfig) {
+    const client = new Amane();
+    client.init();
+  }else{
+    console.log("Please fix your errors before loading the bot.")
+  }
+})
