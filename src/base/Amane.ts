@@ -11,7 +11,7 @@ class Amane {
     this.commands = new Collection();
   }
 
-  public async loadSlashCommands(path: string) {
+  private async loadSlashCommands(path: string) {
     //const command = await import(path);
     for await (const file of expandGlob(`${path}commands/**/*.js`)) {
       console.log(file);
