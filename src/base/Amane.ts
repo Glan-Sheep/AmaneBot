@@ -17,6 +17,10 @@ class Amane {
       console.log(file);
     }
   }
+
+  init(path: string) {
+    this.loadSlashCommands(path);
+  }
 }
 
 export default Amane;

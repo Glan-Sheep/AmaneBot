@@ -7,7 +7,7 @@ import Client from "./base/Amane.ts"
 
   if (checkConfig) {
     const Amane = new Client();
-    Amane.loadSlashCommands(directory());
+    Amane.init(directory());
   }else{
     console.log("Please fix your errors before loading the bot.")
   }
