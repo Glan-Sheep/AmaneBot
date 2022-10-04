@@ -1,13 +1,17 @@
-import { Collection } from "https://deno.land/x/discordeno@16.0.1/mod.ts";
 import { expandGlob } from "https://deno.land/std@0.158.0/fs/mod.ts";
+import { Client, Intents, Collection } from "npm:discord.js@13.11.0"
 
-class Amane {
+class Amane extends Client {
   commands: Collection<string, {
     name: string,
     description: string,
     options: unknown,
   }>
   constructor() {
+    super({
+      partials: ["USER", "GUILD_MEMBER", "MESSAGE", "CHANNEL", "REACTION"],
+      intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+    });
     this.commands = new Collection();
   }
 
