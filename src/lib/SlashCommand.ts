@@ -19,23 +19,26 @@ export class SlashCommand {
 
   interaction: any;
   id: any;
-  constructor(client, options = {
-    enable: true,
-    name: null,
-    description: "説明なし",
-    options: [],
-  }) {
+  constructor(
+    client,
+    options = {
+      enable: true,
+      name: "",
+      description: "説明なし",
+      options: [],
+    }
+  ) {
     this.client = client;
 
     this.enable = options.enable ?? true;
-    this.name = options.name ?? null;
+    this.name = options.name ?? "";
     this.description = options.description ?? "説明なし";
     this.options = options.options ?? [];
   }
 
-  setInteraction(interaction) {
+  /*setInteraction(interaction) {
     this.interaction = interaction;
-  }
+  }*/
 
   respond(data:any) {
     return this.client.api
