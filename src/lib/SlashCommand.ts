@@ -40,7 +40,7 @@ export class SlashCommand {
     this.interaction = interaction;
   }*/
 
-  respond(data:any) {
+  respond(data: any) {
     return this.client.api
       .interactions(this.interaction.id, this.interaction.token)
       .callback.post({data: {type: 4, data: {embeds: [data]}}});
@@ -49,13 +49,7 @@ export class SlashCommand {
   async run(client, args) {
   }
 
-  async del() {
-    const del = await axios.delete(`${DEV_API_URL}/${this.id}`, Header);
-  }
-
-  async delete() {
-    const del = await axios.delete(`${DEV_API_URL}`);
-  }
+  async run(client, _args: unknown) {}
 
   async array() {
     const res = await axios.get(DEV_API_URL, Header);
