@@ -1,7 +1,8 @@
-import axios from "axios";
-
-require('dotenv').config();
-const { TOKEN, DEV_API_URL } = process.env;
+import axios from "npm:axios@1.0.0";
+import { config } from "../deps.ts";
+const env = config();
+const TOKEN = env["TOKEN"],
+  DEV_API_URL = env["DEV_API_URL"]
 
 const Header = {
   headers: {
