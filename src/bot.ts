@@ -1,7 +1,4 @@
 import {
-  Collection,
-  createBot,
-  GatewayIntents,
   config,
 } from "./deps.ts";
 import {
