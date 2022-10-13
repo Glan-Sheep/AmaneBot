@@ -8,8 +8,10 @@ import {
   enableHelpersPlugin,
   enablePermissionsPlugin,
   GatewayIntents,
-} from "./deps.ts";
-import Command from "./base/SlashCommand.ts";
+  config,
+  enableCacheSweepers,
+} from "./deps.ts"
+import { Command } from "./lib/mod.ts";
 export interface BotClient extends BotWithCache<BotWithHelpersPlugin> {
   commands: Collection<string, Command>
 }
