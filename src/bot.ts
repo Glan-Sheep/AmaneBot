@@ -4,7 +4,6 @@ import {
   Collection,
   createBot,
   enableCachePlugin,
-  enableCacheSweepers,
   enableHelpersPlugin,
   enablePermissionsPlugin,
   GatewayIntents,
@@ -28,5 +27,9 @@ enableCacheSweepers(bot as BotWithCache);
 enablePermissionsPlugin(bot as BotWithCache);
 
 export interface BotClient extends BotWithCache<BotWithHelpersPlugin> {
-  commands: Collection<string, Command>
+  commands: Collection<string, Command>;
 }
+
+export const Amane = bot as BotClient;
+
+Amane.commands = new Collection();
