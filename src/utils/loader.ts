@@ -7,3 +7,9 @@ export async function importCommands(path:string) {
     await import(file.path);
   }
 }
+export async function importEvents(path:string) {
+  for await (const file of expandGlob(`${path}events/**/*.ts`)) {
+    log.info(`Loading [Event]${file.name}...`)
+    await import(file.path);
+  }
+}
