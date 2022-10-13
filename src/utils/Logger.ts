@@ -1,4 +1,4 @@
-import { bold, cyan, gray, italic, red, yellow } from "../deps.ts"
+import { bold, cyan, gray, italic, red, yellow } from "../deps.ts";
 
 export enum LogLevels {
   Debug,
@@ -30,13 +30,13 @@ export function logger({
   name,
 }: {
   logLevel?: LogLevels;
-  name?: string
+  name?: string;
 } = {}) {
   function log(level: LogLevels, ...args: unknown[]) {
     if (level < logLevel) return;
 
     let color = colorFunctions.get(level);
-    if (!color) color = noClolor
+    if (!color) color = noClolor;
 
     const date = new Date();
     const log = [

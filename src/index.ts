@@ -14,5 +14,8 @@ await updateAppcationCommands();
 
 function directory(): string {
   const dir = `${dirname(import.meta.url)}${sep}`;
-  return dir.replace(/\\/g, "/").replace("/tmp/", "/home/runner/Amane-Bot/").replace("file://","");
+  return dir
+    .replace(/\\/g, "/")
+    .replace("/tmp/", "/home/runner/Amane-Bot/")
+    .replace("file://", "");
 }

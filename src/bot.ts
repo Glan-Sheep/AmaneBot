@@ -9,10 +9,10 @@ import {
   GatewayIntents,
   config,
   enableCacheSweepers,
-} from "./deps.ts"
+} from "./deps.ts";
 import { Command } from "./lib/mod.ts";
 
-const env = config()
+const env = config();
 
 const bot = createBot({
   token: env["TOKEN"],
