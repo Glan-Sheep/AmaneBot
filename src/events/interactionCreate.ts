@@ -11,6 +11,4 @@ Amane.events.interactionCreate = (_, interaction) => {
       log.info(`[Application Command] ${interaction.data.name} command`)
       Amane.commands.get(interaction.data?.name!)?.execute(Amane, interaction)
   }
-
-  log.info(interaction)
 }

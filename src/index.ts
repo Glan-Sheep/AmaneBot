@@ -12,8 +12,6 @@ await importEvents(directory());
 
 await updateAppcationCommands();
 
-console.log(Amane.commands);
-
 function directory(): string {
   const dir = `${dirname(import.meta.url)}${sep}`;
   return dir.replace(/\\/g, "/").replace("/tmp/", "/home/runner/Amane-Bot/").replace("file://","");
