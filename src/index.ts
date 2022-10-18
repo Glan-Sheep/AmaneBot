@@ -1,7 +1,7 @@
 import { startBot, dirname, sep } from "./deps.ts";
 import { Amane } from "./bot.ts";
 import { importCommands, importEvents } from "./utils/loader.ts";
-import { updateAppcationCommands } from "./utils/updateCommands.ts"
+import { updateAppcationCommands } from "./utils/updateCommands.ts";
 import log from "./utils/logger.ts";
 
 log.info("Starting bot...");
