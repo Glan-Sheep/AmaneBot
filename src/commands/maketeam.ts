@@ -78,22 +78,22 @@ createCommand({
         }
       }
       _arrayShuffle(members);
-      const _TeamA = members.slice(0, members.length / 2);
-      const _TeamB = members.slice(members.length / 2, members.length);
+      const TeamA = members.slice(0, members.length / 2);
+      const TeamB = members.slice(members.length / 2, members.length);
 
-      let _TeamA_str = "";
-      let _TeamB_str = "";
+      let TeamA_str = "";
+      let TeamB_str = "";
 
-      for (let i = 0; i < _TeamA.length; i++) {
-        _TeamA_str += ` <@${_TeamA[i]}>`;
+      for (let i = 0; i < TeamA.length; i++) {
+        TeamA_str += ` <@${TeamA[i]}>`;
       }
-      for (let i = 0; i < _TeamB.length; i++) {
-        _TeamB_str += ` <@${_TeamB[i]}>`;
+      for (let i = 0; i < TeamB.length; i++) {
+        TeamB_str += ` <@${TeamB[i]}>`;
       }
 
       embeds.setTitle("MakeTeam!").setDescription(`
-        🌀 **Team 🅰**${_TeamA_str}
-        🌀 **Team 🅱**${_TeamB_str}
+        🌀 **Team 🅰**${TeamA_str}
+        🌀 **Team 🅱**${TeamB_str}
       `);
     }
 
