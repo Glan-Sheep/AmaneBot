@@ -3,8 +3,8 @@ import { createCommand } from "./mod.ts";
 import { EmbedBuilder } from "../lib/mod.ts";
 
 createCommand({
-  name: "meigen",
-  description: "ランダムで名言を表示します",
+  name: "cmdName",
+  description: "cmdDescription",
   type: ApplicationCommandTypes.ChatInput,
   async execute(): Promise<EmbedBuilder> {
     const embeds = new EmbedBuilder()
