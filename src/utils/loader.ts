@@ -3,7 +3,7 @@ import { expandGlob } from "../deps.ts";
 
 export async function importCommands(path: string) {
   for await (const file of expandGlob(`${path}commands/**/*.ts`)) {
-    if (!(file.name === "meigen.ts")) continue;
+    if (file.name === "template.ts") continue;
     log.info(`Loading [Cmd]${file.name}...`);
     await import("file://" + file.path);
   }
