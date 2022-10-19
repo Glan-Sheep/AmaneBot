@@ -7,7 +7,7 @@ createCommand({
   description: "cmdDescription",
   type: ApplicationCommandTypes.ChatInput,
   async execute(): Promise<EmbedBuilder> {
-    const embeds = new EmbedBuilder()
+    const embeds = new EmbedBuilder();
     return embeds;
   },
 });
