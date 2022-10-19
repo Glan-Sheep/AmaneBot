@@ -1,2 +1,2 @@
-export * from "./commands.ts";
+export * from "./command.ts";
 export { EmbedBuilder } from "./embed.ts"
