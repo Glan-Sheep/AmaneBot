@@ -19,5 +19,5 @@ export interface Command {
   options?: ApplicationCommandOption[];
   /** This will be executed when the command is run. */
   //execute: ((bot: BotClient, interaction: Interaction) => unknown);
-  execute: (bot: BotClient, interaction: Interaction) => Promise<EmbedBuilder>;
+  execute: (bot: BotClient, interaction: Interaction) => Promise<EmbedBuilder> | EmbedBuilder;
 }
