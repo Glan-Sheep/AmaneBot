@@ -8,22 +8,15 @@ Amane.events.interactionCreate = (_, interaction) => {
   switch (interaction.type) {
     case InteractionTypes.ApplicationCommand: {
       log.info(`[Application Command] ${interaction.data.name} command`);
-      //const _reply = Amane.commands.get(interaction.data.name!)?.execute(Amane, interaction);
-      const cmdPath = Amane.commandsPath.get(interaction.data.name!)?.path;
-      const cmd = await import(cmdPath);
-      log.info(_reply)
-      if (_reply !== undefined) {
-        Amane.helpers.sendInteractionResponse(
-          interaction.id,
-          interaction.token,
-          {
-            type: InteractionResponseTypes.ChannelMessageWithSource,
-            data: {
-              embeds: [_reply.data],
-            },
-          }
-        );
-      }
+      const _reply = Amane.commands.get(interaction.data.name!)?.execute(Amane, interaction).then((embed) => {
+        Amane.helpers.sendInteractionResponse(interaction.id, interaction.token, {
+          type: InteractionResponseTypes.ChannelMessageWithSource,
+          data: {
+            embeds: [embed.data],
+          },
+        });
+      });
+      break;
     }
   }
 };
