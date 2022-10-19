@@ -7,12 +7,10 @@ createCommand({
   description: "ランダムで名言を表示します",
   type: ApplicationCommandTypes.ChatInput,
   async execute(): Promise<EmbedBuilder> {
-    const embeds = new EmbedBuilder();
-      const data = await axiod.get("https://meigen.doodlenote.net/api/json.php");
-      embeds
+    const data = await axiod.get("https://meigen.doodlenote.net/api/json.php");
+    const embeds = new EmbedBuilder()
       .setTitle(data.data[0].auther)
-      .setDescription(data.data[0].meigen)
-    return embeds
+      .setDescription(data.data[0].meigen);
+    return embeds;
   },
-
 });

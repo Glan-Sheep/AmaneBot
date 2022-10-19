@@ -1,5 +1,9 @@
 import { BotClient } from "../bot.ts";
-import { ApplicationCommandOption, ApplicationCommandTypes, Interaction } from "../deps.ts";
+import {
+  ApplicationCommandOption,
+  ApplicationCommandTypes,
+  Interaction,
+} from "../deps.ts";
 import { EmbedBuilder } from "./mod.ts";
 
 export interface Command {
