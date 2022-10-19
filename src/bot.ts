@@ -9,8 +9,8 @@ import {
   GatewayIntents,
   config,
   enableCacheSweepers,
-ApplicationCommandOption,
 } from "./deps.ts";
+import { Command } from "./lib/mod.ts";
 
 const env = config();
 
@@ -27,14 +27,7 @@ enableCacheSweepers(bot as BotWithCache);
 enablePermissionsPlugin(bot as BotWithCache);
 
 export interface BotClient extends BotWithCache<BotWithHelpersPlugin> {
-  commands: Collection<string, {
-    name: string,
-    description: string,
-    options: ApplicationCommandOption[],
-  }>;
-  commandsPath: Collection<string, {
-    path: string
-  }>;
+  commands: Collection<string, Command>;
 }
 
 export const Amane = bot as BotClient;
