@@ -1,4 +1,3 @@
-import { BotClient } from "../bot.ts";
 import {
   ApplicationCommandOption,
   ApplicationCommandTypes,
@@ -18,6 +17,5 @@ export interface Command {
   /** The options for this command */
   options?: ApplicationCommandOption[];
   /** This will be executed when the command is run. */
-  //execute: ((bot: BotClient, interaction: Interaction) => unknown);
-  execute: (bot: BotClient, interaction: Interaction) => Promise<EmbedBuilder> | EmbedBuilder;
+  execute: (interaction: Interaction) => Promise<EmbedBuilder> | EmbedBuilder;
 }

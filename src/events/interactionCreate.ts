@@ -11,7 +11,7 @@ Amane.events.interactionCreate = (_, interaction) => {
       log.info(`[Application Command] ${interaction.data.name} command`);
       const _reply = Amane.commands
         .get(interaction.data.name!)
-        ?.execute(Amane, interaction);
+        ?.execute(interaction);
       if (_reply instanceof Promise<EmbedBuilder>) {
         _reply.then((embed) => {
           Amane.helpers.sendInteractionResponse(
