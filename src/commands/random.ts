@@ -21,7 +21,7 @@ createCommand({
       minValue: 0,
       maxValue: 2147483647,
       required: true,
-    }
+    },
   ],
   type: ApplicationCommandTypes.ChatInput,
   execute(_interaction, args): EmbedBuilder {
@@ -29,34 +29,34 @@ createCommand({
     let num_emoji = "";
     for (let i = 0; i < num.toString().length; i++) {
       switch (num.toString().charAt(i)) {
-        case '0':
+        case "0":
           num_emoji += "0️⃣";
           break;
-        case '1':
+        case "1":
           num_emoji += "1️⃣";
           break;
-        case '2':
+        case "2":
           num_emoji += "2️⃣";
           break;
-        case '3':
+        case "3":
           num_emoji += "3️⃣";
           break;
-        case '4':
+        case "4":
           num_emoji += "4️⃣";
           break;
-        case '5':
+        case "5":
           num_emoji += "5️⃣";
           break;
-        case '6':
+        case "6":
           num_emoji += "6️⃣";
           break;
-        case '7':
+        case "7":
           num_emoji += "7️⃣";
           break;
-        case '8':
+        case "8":
           num_emoji += "8️⃣";
           break;
-        case '9':
+        case "9":
           num_emoji += "9️⃣";
           break;
       }
@@ -69,7 +69,9 @@ createCommand({
     const embeds = new EmbedBuilder()
       .setTitle("乱数を生成したよ！")
       .setDescription(`${num_emoji}`)
-      .setFooter({text: `${args[0].value}から${args[1].value}までの乱数です`});
+      .setFooter({
+        text: `${args[0].value}から${args[1].value}までの乱数です`,
+      });
     return embeds;
   },
 });
