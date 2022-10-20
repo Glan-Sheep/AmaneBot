@@ -20,9 +20,9 @@ createCommand({
   type: ApplicationCommandTypes.ChatInput,
   async execute(_interaction, args): Promise<EmbedBuilder> {
     const data = await axiod.get(
-      "https://ux.nu/api/short?url=" + args[0].value
+      "https://is.gd/create.php?format=simple&url=" + args[0].value
     );
-    const resdata = data.data.data.url;
+    const resdata = data.data;
     const embeds = new EmbedBuilder()
       .setTitle("URLを圧縮したよ！")
       .setDescription(resdata);
