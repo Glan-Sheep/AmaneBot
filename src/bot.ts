@@ -9,8 +9,6 @@ import {
   GatewayIntents,
   config,
   enableCacheSweepers,
-  sep,
-  dirname,
 } from "./deps.ts";
 import { Command } from "./lib/mod.ts";
 
@@ -35,11 +33,3 @@ export interface BotClient extends BotWithCache<BotWithHelpersPlugin> {
 export const Amane = bot as BotClient;
 
 Amane.commands = new Collection();
-
-export function directory(): string {
-  const dir = `${dirname(import.meta.url)}${sep}`;
-  return dir
-    .replace(/\\/g, "/")
-    .replace("/tmp/", "/home/runner/Amane-Bot/")
-    .replace("file://", "");
-}
