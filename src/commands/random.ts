@@ -1,4 +1,4 @@
-import { ApplicationCommandTypes } from "../deps.ts";
+import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "../deps.ts";
 import { createCommand } from "./mod.ts";
 import { EmbedBuilder } from "../lib/mod.ts";
 
@@ -7,7 +7,7 @@ createCommand({
   description: "乱数を生成します",
   options: [
     {
-      type: 4,
+      type: ApplicationCommandOptionTypes.Number,
       name: "min",
       description: "最小値を入力",
       minValue: 0,
@@ -15,7 +15,7 @@ createCommand({
       required: true,
     },
     {
-      type: 4,
+      type: ApplicationCommandOptionTypes.Number,
       name: "max",
       description: "最大値を入力",
       minValue: 0,
