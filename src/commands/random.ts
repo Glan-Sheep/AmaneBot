@@ -24,7 +24,7 @@ createCommand({
     }
   ],
   type: ApplicationCommandTypes.ChatInput,
-  execute(interaction, args): EmbedBuilder {
+  execute(_interaction, args): EmbedBuilder {
     const num = getRandomInt(args[0].value, args[1].value);
     let num_emoji = "";
     for (let i = 0; i < num.toString().length; i++) {

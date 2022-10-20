@@ -14,7 +14,7 @@ createCommand({
     }
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(interaction, args): Promise<EmbedBuilder> {
+  async execute(_interaction, args): Promise<EmbedBuilder> {
     const data = await axiod.get("https://ux.nu/api/short?url=" + args[0].value);
     const resdata = data.data.data.url;
     const embeds = new EmbedBuilder()

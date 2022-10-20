@@ -14,7 +14,7 @@ createCommand({
     }
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(interaction, args): Promise<EmbedBuilder> {
+  async execute(_interaction, args): Promise<EmbedBuilder> {
     const embeds = new EmbedBuilder();
     const place_data = await axiod.get(`https://geocoding-api.open-meteo.com/v1/search?name=${args[0].value}&count=1`);
     const country = place_data.data.results[0].country_code;
