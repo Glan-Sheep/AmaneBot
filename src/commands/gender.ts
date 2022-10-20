@@ -1,7 +1,10 @@
-import { ApplicationCommandOptionTypes, ApplicationCommandTypes, axiod } from "../deps.ts";
+import {
+  ApplicationCommandOptionTypes,
+  ApplicationCommandTypes,
+  axiod,
+} from "../deps.ts";
 import { createCommand } from "./mod.ts";
 import { EmbedBuilder } from "../lib/mod.ts";
-import log from "../utils/logger.ts";
 
 createCommand({
   name: "gender",
@@ -17,18 +20,20 @@ createCommand({
   type: ApplicationCommandTypes.ChatInput,
   async execute(_interaction, args): Promise<EmbedBuilder> {
     const embeds = new EmbedBuilder();
-    const data = await axiod.get(`https://api.genderize.io/?name=${args[0].value}`);
-    const probability: number = Math.round(data.data.probability * 100)
+    const data = await axiod.get(
+      `https://api.genderize.io/?name=${args[0].value}`
+    );
+    const probability: number = Math.round(data.data.probability * 100);
     if (data.data.gender === "female") {
       embeds.setDescription(`あなたは女性ですね？
       確率:${probability}%`);
     } else if (data.data.gender === "male") {
       embeds.setDescription(`あなたは男性ですね？
-      確率:${probability}%`)
-    }else{
-      embeds.setDescription("推測できませんでした...")
+      確率:${probability}%`);
+    } else {
+      embeds.setDescription("推測できませんでした...");
     }
-      embeds.setTitle("性別推測")
+    embeds.setTitle("性別推測");
     return embeds;
   },
 });

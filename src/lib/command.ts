@@ -17,9 +17,9 @@ export interface Command {
   /** The options for this command */
   options?: ApplicationCommandOption[];
   /** This will be executed when the command is run. */
-  // deno-lint-ignore no-explicit-any
   execute: (
     interaction: Interaction,
+    // deno-lint-ignore no-explicit-any
     args?: any
   ) => Promise<EmbedBuilder> | EmbedBuilder;
 }
