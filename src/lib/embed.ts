@@ -5,6 +5,8 @@ import {
   Embed,
 } from "../deps.ts";
 import { normalizeArray, type RestOrArray } from "../utils/normalizeArray.ts";
+export type RGBTuple = [red: number, green: number, blue: number];
+
 export class EmbedBuilder {
   public readonly data: Embed;
 
@@ -62,6 +64,15 @@ export class EmbedBuilder {
   }
   setThumbnail(url: string | null): this {
     this.data.thumbnail = url ? { url } : undefined;
+    return this;
+  }
+  setColor(color: RGBTuple | number | null) : this {
+    if (Array.isArray(color)) {
+      const [red, green, blue] = color;
+      this.data.color = (red << 16) + (green << 8) + blue;
+      return this;
+    }
+    this.data.color = color ?? undefined;
     return this;
   }
 }
