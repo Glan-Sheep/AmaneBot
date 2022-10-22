@@ -1,6 +1,7 @@
 import { ApplicationCommandTypes, axiod } from "../deps.ts";
 import { createCommand } from "./mod.ts";
 import { EmbedBuilder } from "../lib/mod.ts";
+import log from "../utils/logger.ts";
 
 createCommand({
   name: "holiday",
@@ -10,16 +11,17 @@ createCommand({
     const embeds = new EmbedBuilder();
     const this_year = new Date().getFullYear();
     const this_date = new Date();
-    const data = await axiod.get(
-      `https://kenkyu392.github.io/holidays-jp/v1/${this_year}/date.json`
+    const response = await axiod.get(
+      `https://holidays-jp.github.io/api/v1/${this_year}/date.json`
     );
+    const data = Object.entries(response.data);
     let count = 0;
-    for (let i = 0; i < data.data.holidays.length; i++) {
-      const element = data.data.holidays[i];
-      const element_date = new Date(element.date);
+    for (let i = 0; i < data.length; i++) {
+      const element = data[i];
+      const element_date = new Date(element[0]);
       if (element_date > this_date) {
         embeds.addFields({
-          name: `${element.i18n["ja-JP"]}`,
+          name: `${element[1]}`,
           value: `**${
             element_date.getMonth() + 1
           }月${element_date.getDate()}日${
