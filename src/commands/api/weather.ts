@@ -2,9 +2,9 @@ import {
   ApplicationCommandOptionTypes,
   ApplicationCommandTypes,
   axiod,
-} from "../deps.ts";
-import { createCommand } from "./mod.ts";
-import { EmbedBuilder } from "../lib/mod.ts";
+} from "../../deps.ts";
+import { createCommand } from "../mod.ts";
+import { EmbedBuilder } from "../../lib/mod.ts";
 
 createCommand({
   name: "weather",
