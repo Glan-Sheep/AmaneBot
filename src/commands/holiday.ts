@@ -1,7 +1,6 @@
 import { ApplicationCommandTypes, axiod } from "../deps.ts";
 import { createCommand } from "./mod.ts";
 import { EmbedBuilder } from "../lib/mod.ts";
-import log from "../utils/logger.ts";
 
 createCommand({
   name: "holiday",

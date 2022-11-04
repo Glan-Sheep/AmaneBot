@@ -66,7 +66,7 @@ export class EmbedBuilder {
     this.data.thumbnail = url ? { url } : undefined;
     return this;
   }
-  setColor(color: RGBTuple | number | null) : this {
+  setColor(color: RGBTuple | number | null): this {
     if (Array.isArray(color)) {
       const [red, green, blue] = color;
       this.data.color = (red << 16) + (green << 8) + blue;
