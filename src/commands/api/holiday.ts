@@ -10,11 +10,34 @@ createCommand({
     const embeds = new EmbedBuilder();
     const this_year = new Date().getFullYear();
     const this_date = new Date();
-    const response = await axiod.get(
+    const response_this = await axiod.get(
       `https://holidays-jp.github.io/api/v1/${this_year}/date.json`
     );
-    const data = Object.entries(response.data);
+    let data = Object.entries(response_this.data);
     let count = 0;
+    for (let i = 0; i < data.length; i++) {
+      const element = data[i];
+      const element_date = new Date(element[0]);
+      if (element_date > this_date) {
+        embeds.addFields({
+          name: `${element[1]}`,
+          value: `**${
+            element_date.getMonth() + 1
+          }月${element_date.getDate()}日${
+            ["日", "月", "火", "水", "木", "金", "土"][element_date.getDay()]
+          }曜日**`,
+          inline: true,
+        });
+        count++;
+        if (count === 3) break;
+      }
+    }
+    if (count == 0) {
+      const response_next = await axiod.get(
+        `https://holidays-jp.github.io/api/v1/${this_year + 1}/date.json`
+      );
+      data = Object.entries(response_next.data);
+    }
     for (let i = 0; i < data.length; i++) {
       const element = data[i];
       const element_date = new Date(element[0]);
