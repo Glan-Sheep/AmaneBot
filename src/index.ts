@@ -17,5 +17,5 @@ function directory(): string {
   return dir
     .replace(/\\/g, "/")
     .replace("/tmp/", "/home/runner/Amane-Bot/")
-    .replace("file://", "");
+    .replace("file:///", "");
 }
