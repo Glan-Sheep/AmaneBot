@@ -1,15 +1,15 @@
+import { createBot, Collection, GatewayIntents } from "discordeno/mod.ts";
 import {
   BotWithCache,
-  BotWithHelpersPlugin,
-  Collection,
-  createBot,
   enableCachePlugin,
-  enableHelpersPlugin,
-  enablePermissionsPlugin,
-  GatewayIntents,
-  config,
   enableCacheSweepers,
-} from "./deps.ts";
+} from "discordeno/plugins/cache/mod.ts";
+import {
+  BotWithHelpersPlugin,
+  enableHelpersPlugin,
+} from "discordeno/plugins/helpers/mod.ts";
+import { enablePermissionsPlugin } from "discordeno/plugins/permissions/mod.ts";
+import { config } from "dotenv";
 import { Command } from "./lib/mod.ts";
 
 const env = config();

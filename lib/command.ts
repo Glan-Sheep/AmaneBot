@@ -1,8 +1,4 @@
-import {
-  ApplicationCommandOption,
-  ApplicationCommandTypes,
-  Interaction,
-} from "../deps.ts";
+import { ApplicationCommandOption, ApplicationCommandTypes, Interaction } from "discordeno/mod.ts"
 import { EmbedBuilder } from "./mod.ts";
 
 export interface Command {

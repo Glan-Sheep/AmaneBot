@@ -1,4 +1,4 @@
-import { bold, cyan, gray, italic, red, yellow } from "../deps.ts";
+import { bold, cyan, gray, italic, red, yellow } from "std/fmt/colors.ts";
 
 export enum LogLevels {
   Debug,

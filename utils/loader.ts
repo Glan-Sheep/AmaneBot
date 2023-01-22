@@ -1,6 +1,5 @@
-import log from "./logger.ts";
-import { expandGlob } from "../deps.ts";
-import { Amane } from "../bot.ts";
+import log from "utils/logger.ts";
+import { expandGlob } from "std/fs/mod.ts";
 
 let path : string;
 
