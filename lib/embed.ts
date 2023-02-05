@@ -3,7 +3,7 @@ import {
   DiscordEmbedField,
   DiscordEmbedFooter,
   Embed,
-} from "../deps.ts";
+} from "discordeno/mod.ts";
 import { normalizeArray, type RestOrArray } from "../utils/normalizeArray.ts";
 export type RGBTuple = [red: number, green: number, blue: number];
 

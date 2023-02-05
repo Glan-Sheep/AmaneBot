@@ -3,7 +3,7 @@ import {
   Interaction,
   InteractionResponseTypes,
   InteractionTypes,
-} from "../deps.ts";
+} from "discordeno/mod.ts";
 import { EmbedBuilder } from "../lib/embed.ts";
 import log from "../utils/logger.ts";
 
