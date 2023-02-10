@@ -4,6 +4,7 @@
     "std/": "https://deno.land/std@0.173.0/",
     "discordeno/": "https://deno.land/x/discordeno@17.0.0/",
     "axiod": "https://deno.land/x/axiod@0.26.2/mod.ts",
+    "mongo": "https://deno.land/x/mongo@v0.31.1/mod.ts",
     "utils/": "./utils/",
     "lib/": "./lib/"
   }
