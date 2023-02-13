@@ -1,5 +1,5 @@
 import { ApplicationCommandTypes } from "discordeno/mod.ts";
-import {axiod} from "axiod"
+import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
 
@@ -16,7 +16,7 @@ createCommand({
     const embeds = new EmbedBuilder();
     for (let i = 0; i < resdata.length; i++) {
       const element = resdata[i];
-      description += `${element.title}[🔗](${element.link})\n`;
+      description += `${element.title}[kwsk](${element.link})\n`;
     }
     embeds.setTitle("国内の最新ニュース").setDescription(description);
     return embeds;
