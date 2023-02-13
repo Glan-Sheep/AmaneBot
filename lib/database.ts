@@ -1,8 +1,10 @@
 import { MongoClient } from "mongo";
+import { config } from "dotenv";
+
+const env = config();
 
 const client = new MongoClient();
 
-// Connecting to a Local Database
-await client.connect("mongodb://127.0.0.1:27017");
+await client.connect(env["MONGO_URL"]);
 
 export default client;
