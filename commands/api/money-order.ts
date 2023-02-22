@@ -1,5 +1,5 @@
 import { ApplicationCommandTypes } from "discordeno/mod.ts";
-import {axiod} from "axiod"
+import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
 

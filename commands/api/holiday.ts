@@ -1,5 +1,5 @@
 import { ApplicationCommandTypes } from "discordeno/mod.ts";
-import {axiod} from "axiod"
+import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
 
@@ -28,11 +28,9 @@ createCommand({
       if (element_date > this_date) {
         embeds.addFields({
           name: `${element[1]}`,
-          value: `**${
-            element_date.getMonth() + 1
-          }月${element_date.getDate()}日${
-            ["日", "月", "火", "水", "木", "金", "土"][element_date.getDay()]
-          }曜日**`,
+          value: `**${element_date.getMonth() + 1
+            }月${element_date.getDate()}日${["日", "月", "火", "水", "木", "金", "土"][element_date.getDay()]
+            }曜日**`,
           inline: true,
         });
         count++;

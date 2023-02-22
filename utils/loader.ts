@@ -1,7 +1,7 @@
 import log from "utils/logger.ts";
 import { expandGlob } from "std/fs/mod.ts";
 
-let path : string;
+let path: string;
 
 export function importPath(_path: string) {
   path = _path;
