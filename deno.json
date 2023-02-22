@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "start": "deno run --allow-all --watch=commands/ index.ts"
+    "start": "deno run -A index.ts"
   },
   "importMap": "./import_map.json"
 }
