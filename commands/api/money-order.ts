@@ -9,23 +9,29 @@ createCommand({
   type: ApplicationCommandTypes.ChatInput,
   async execute(_interaction, args): Promise<EmbedBuilder> {
     const embeds = new EmbedBuilder();
-    const data = await axiod.get(
-      `https://dotnsf-fx.herokuapp.com/`
+    const USDJPY = await axiod.get(
+      `https://api.excelapi.org/currency/rate?pair=usd-jpy`
+    );
+    const EURJPY = await axiod.get(
+      `https://api.excelapi.org/currency/rate?pair=gbp-jpy`
+    );
+    const GBPJPY = await axiod.get(
+      `https://api.excelapi.org/currency/rate?pair=eur-jpy`
     );
     embeds.setTitle("今日の為替レート");
     embeds.addFields({
       name: `ドル/円`,
-      value: `${data.data.rate.USDJPY}`,
+      value: `${USDJPY.data}`,
       inline: true,
     });
     embeds.addFields({
       name: `ユーロ/円`,
-      value: `${data.data.rate.EURJPY}`,
+      value: `${EURJPY.data}`,
       inline: true,
     });
     embeds.addFields({
       name: `英ポンド/円`,
-      value: `${data.data.rate.GBPJPY}`,
+      value: `${GBPJPY.data}`,
       inline: true,
     });
     return embeds;
