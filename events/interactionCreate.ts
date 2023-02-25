@@ -23,7 +23,6 @@ Amane.events.interactionCreate = (_, interaction) => {
           .get(interaction.data.name!)
           ?.execute(interaction, args);
         response(reply, interaction);
-        console.log(reply);
       }
       break;
     }
