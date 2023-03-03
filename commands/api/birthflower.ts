@@ -5,6 +5,7 @@ import {
 import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "birthflower",
@@ -28,7 +29,7 @@ createCommand({
       maxValue: 31,
     }
   ],
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const embeds = new EmbedBuilder();
     const m = ("00" + args[0].value).slice(-2);
     const d = ("00" + args[1].value).slice(-2);
@@ -41,6 +42,6 @@ createCommand({
       value: item["lang"]
     });
     embeds.setFooter({text: "powered by whatistodayAPI"});
-    return embeds;
+    response(interaction, embeds);
   },
 });

@@ -2,6 +2,7 @@ import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "discorde
 import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "url",
@@ -15,7 +16,7 @@ createCommand({
     },
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const data = await axiod.get(
       "https://is.gd/create.php?format=simple&url=" + args[0].value
     );
@@ -23,6 +24,6 @@ createCommand({
     const embeds = new EmbedBuilder()
       .setTitle("URLを圧縮したよ！")
       .setDescription(resdata);
-    return embeds;
+    response(interaction, embeds);
   },
 });

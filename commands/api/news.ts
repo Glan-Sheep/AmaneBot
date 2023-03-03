@@ -2,12 +2,13 @@ import { ApplicationCommandTypes } from "discordeno/mod.ts";
 import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "news",
   description: "国内の最新ニュースを表示します",
   type: ApplicationCommandTypes.ChatInput,
-  async execute(): Promise<EmbedBuilder> {
+  async execute(interaction) {
     const data = await axiod.get(
       "https://api.rss2json.com/v1/api.json?rss_url=https://news.yahoo.co.jp/rss/topics/top-picks.xml"
     );
@@ -19,6 +20,6 @@ createCommand({
       description += `${element.title}[kwsk](${element.link})\n`;
     }
     embeds.setTitle("国内の最新ニュース").setDescription(description);
-    return embeds;
+    response(interaction, embeds);
   },
 });

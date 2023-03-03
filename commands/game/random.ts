@@ -1,6 +1,7 @@
 import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "discordeno/mod.ts";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "random",
@@ -24,7 +25,7 @@ createCommand({
     },
   ],
   type: ApplicationCommandTypes.ChatInput,
-  execute(_interaction, args): EmbedBuilder {
+  execute(interaction, args) {
     const num = getRandomInt(args[0].value, args[1].value);
     let num_emoji = "";
     for (let i = 0; i < num.toString().length; i++) {
@@ -72,6 +73,6 @@ createCommand({
       .setFooter({
         text: `${args[0].value}から${args[1].value}までの乱数です`,
       });
-    return embeds;
+    response(interaction, embeds);
   },
 });

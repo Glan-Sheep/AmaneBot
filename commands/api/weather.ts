@@ -5,6 +5,7 @@ import {
 import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "weather",
@@ -18,7 +19,7 @@ createCommand({
     },
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const embeds = new EmbedBuilder();
     const place_data = await axiod.get(
       `https://geocoding-api.open-meteo.com/v1/search?name=${args[0].value}&count=1`
@@ -46,6 +47,6 @@ createCommand({
       }
       embeds.setTitle(`${place_data.data.results[0].name} weather`);
     }
-    return embeds;
+    response(interaction, embeds);
   },
 });

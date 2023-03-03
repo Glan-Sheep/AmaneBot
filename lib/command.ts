@@ -17,5 +17,5 @@ export interface Command {
     interaction: Interaction,
     // deno-lint-ignore no-explicit-any
     args?: any
-  ) => Promise<EmbedBuilder> | EmbedBuilder;
+  ) => void | Promise<void>;
 }

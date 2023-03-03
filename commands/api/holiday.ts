@@ -2,12 +2,13 @@ import { ApplicationCommandTypes } from "discordeno/mod.ts";
 import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "holiday",
   description: "次の祝日を取得します",
   type: ApplicationCommandTypes.ChatInput,
-  async execute(): Promise<EmbedBuilder> {
+  async execute(interaction) {
     const embeds = new EmbedBuilder();
     const this_year = new Date().getFullYear();
     const this_date = new Date();
@@ -38,6 +39,6 @@ createCommand({
       }
     }
     embeds.setTitle("次の祝日");
-    return embeds;
+    response(interaction, embeds);
   },
 });

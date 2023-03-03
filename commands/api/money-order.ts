@@ -2,12 +2,13 @@ import { ApplicationCommandTypes } from "discordeno/mod.ts";
 import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "money-order",
   description: "為替レートを取得します。",
   type: ApplicationCommandTypes.ChatInput,
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, _args) {
     const embeds = new EmbedBuilder();
     const USDJPY = await axiod.get(
       `https://api.excelapi.org/currency/rate?pair=usd-jpy`
@@ -34,6 +35,6 @@ createCommand({
       value: `${GBPJPY.data}`,
       inline: true,
     });
-    return embeds;
+    response(interaction, embeds);
   },
 });

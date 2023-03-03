@@ -2,6 +2,7 @@ import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "discorde
 import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "elevation",
@@ -15,7 +16,7 @@ createCommand({
       required: true,
     },
   ],
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const place_data = await axiod.get(
       `https://geocoding-api.open-meteo.com/v1/search?name=${args[0].value}&count=1`
     );
@@ -27,6 +28,6 @@ createCommand({
     const embeds = new EmbedBuilder();
     embeds.setTitle(args[0].value + " elevation");
     embeds.setDescription(elevation + "m");
-    return embeds;
+    response(interaction, embeds);
   },
 });

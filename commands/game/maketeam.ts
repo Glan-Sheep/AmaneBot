@@ -1,6 +1,7 @@
 import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "discordeno/mod.ts";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "maketeam",
@@ -61,7 +62,7 @@ createCommand({
       description: "参加するメンバーを選択",
     },
   ],
-  execute(interaction): EmbedBuilder {
+  execute(interaction) {
     const embeds = new EmbedBuilder();
     const msg = interaction.data?.options;
     if (msg !== undefined) {
@@ -105,6 +106,6 @@ createCommand({
       }
       return array;
     }
-    return embeds;
+    response(interaction, embeds);
   },
 });

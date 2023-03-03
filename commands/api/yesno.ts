@@ -5,6 +5,7 @@ import {
 import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "yesno",
@@ -18,7 +19,7 @@ createCommand({
     },
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const data = await axiod.get("https://yesno.wtf/api");
     const resdata = data.data;
     const embeds = new EmbedBuilder().setImage(resdata.image);
@@ -44,6 +45,6 @@ createCommand({
         embeds.setTitle(">> MAYBE <<");
       }
     }
-    return embeds;
+    response(interaction, embeds);
   },
 });

@@ -2,6 +2,7 @@ import { ApplicationCommandOptionTypes, ApplicationCommandTypes } from "discorde
 import { axiod } from "axiod"
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "gender",
@@ -15,7 +16,7 @@ createCommand({
     },
   ],
   type: ApplicationCommandTypes.ChatInput,
-  async execute(_interaction, args): Promise<EmbedBuilder> {
+  async execute(interaction, args) {
     const embeds = new EmbedBuilder();
     const data = await axiod.get(
       `https://api.genderize.io/?name=${args[0].value}`
@@ -31,6 +32,6 @@ createCommand({
       embeds.setDescription("推測できませんでした...");
     }
     embeds.setTitle("性別推測");
-    return embeds;
+    response(interaction, embeds);
   },
 });

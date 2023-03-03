@@ -5,12 +5,13 @@ import {
 import { axiod } from "axiod";
 import { createCommand } from "../mod.ts";
 import { EmbedBuilder } from "lib/mod.ts";
+import { response } from "utils/embedResponse.ts";
 
 createCommand({
   name: "nnh",
   description: "今日が何の日かを取得します",
   type: ApplicationCommandTypes.ChatInput,
-  async execute(): Promise<EmbedBuilder> {
+  async execute(interaction) {
     const embeds = new EmbedBuilder();
 
     const date = new Date();
@@ -32,6 +33,6 @@ createCommand({
     }
     embeds.setTitle("今日は何の日？？");
     embeds.setFooter({text: "powered by whatistodayAPI"});
-    return embeds;
+    response(interaction, embeds)
   },
 });
